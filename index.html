@@ -3,432 +3,373 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FarmAds.ng — The Future of African Agriculture</title>
-  <meta name="description" content="FarmAds.ng is an AI-powered agricultural marketplace connecting Nigerian farmers to global markets. Zero waste. Secure escrow. Real-time intelligence." />
-  <meta property="og:title" content="FarmAds.ng — AI-Powered African Agriculture" />
-  <meta property="og:description" content="Bridging the gap between the farm and the world — one AI-driven connection at a time." />
+  <title>Farmads.com — The Complete Farming Solution</title>
+  <meta name="description" content="Farmads.com is Nigeria's AI-powered agricultural marketplace. Connect your harvest to global buyers in Europe, China and Asia. Zero waste. Secure escrow. Built for farmers." />
+  <meta property="og:title" content="Farmads.com — The Complete Farming Solution" />
+  <meta property="og:description" content="AI brokers. Pre-harvest orders. Secure global trade. Built for every Nigerian farmer." />
   <meta property="og:type" content="website" />
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- CURSOR GLOW -->
-  <div class="cursor-glow" id="cursorGlow"></div>
-
-  <!-- NOISE OVERLAY -->
-  <div class="noise-overlay"></div>
-
-  <!-- ───────── NAV ───────── -->
+  <!-- ═══ NAV ═══ -->
   <nav class="nav" id="navbar">
     <div class="nav__inner">
       <a href="#" class="nav__logo">
-        <span class="logo-mark">F</span>
-        <span class="logo-text">FarmAds<span class="logo-dot">.ng</span></span>
+        <svg class="logo-svg" viewBox="0 0 48 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4 C24 4 32 -1 36 3 C30 7 26 9 24 9 Z" fill="#27AE60"/>
+          <path d="M24 4 C24 4 16 -1 12 3 C18 7 22 9 24 9 Z" fill="#27AE60" opacity="0.65"/>
+          <line x1="24" y1="3" x2="24" y2="10" stroke="#27AE60" stroke-width="1.8"/>
+          <path d="M8 23 C8 13 15 9 24 9 C33 9 40 13 40 23 C40 35 33 47 24 47 C15 47 8 35 8 23Z" fill="none" stroke="#27AE60" stroke-width="2.8"/>
+          <circle cx="24" cy="28" r="11" fill="none" stroke="#27AE60" stroke-width="2.2"/>
+          <circle cx="24" cy="28" r="6.5" fill="none" stroke="#27AE60" stroke-width="2.2"/>
+          <circle cx="24" cy="28" r="2.5" fill="#27AE60"/>
+        </svg>
+        <span class="logo-wordmark">Farmads<span class="logo-tld">.com</span></span>
       </a>
-      <ul class="nav__links" id="navLinks">
+      <ul class="nav__links">
         <li><a href="#how-it-works" class="nav__link">How It Works</a></li>
         <li><a href="#features" class="nav__link">Features</a></li>
+        <li><a href="#mobile" class="nav__link">Mobile App</a></li>
         <li><a href="#stakeholders" class="nav__link">Who It's For</a></li>
-        <li><a href="#stats" class="nav__link">Impact</a></li>
         <li><a href="#contact" class="nav__link">Contact</a></li>
       </ul>
       <div class="nav__actions">
-        <a href="#register" class="btn btn--ghost">Sign In</a>
-        <a href="#register" class="btn btn--primary">Get Started</a>
+        <a href="#register" class="btn btn--ghost-nav">Sign In</a>
+        <a href="#register" class="btn btn--green">Get Started Free</a>
       </div>
       <button class="nav__burger" id="burger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
     </div>
-    <!-- Mobile menu -->
     <div class="nav__mobile" id="mobileMenu">
       <a href="#how-it-works" class="nav__mobile-link">How It Works</a>
       <a href="#features" class="nav__mobile-link">Features</a>
+      <a href="#mobile" class="nav__mobile-link">Mobile App</a>
       <a href="#stakeholders" class="nav__mobile-link">Who It's For</a>
-      <a href="#stats" class="nav__mobile-link">Impact</a>
       <a href="#contact" class="nav__mobile-link">Contact</a>
-      <a href="#register" class="btn btn--primary" style="margin-top:1rem;text-align:center;">Get Started Free</a>
+      <a href="#register" class="btn btn--green" style="margin-top:1rem;text-align:center">Get Started Free</a>
     </div>
   </nav>
 
-  <!-- ───────── HERO ───────── -->
-  <section class="hero" id="hero">
+  <!-- ═══ HERO — dark green ═══ -->
+  <section class="hero">
     <div class="hero__bg">
       <div class="hero__orb hero__orb--1"></div>
       <div class="hero__orb hero__orb--2"></div>
-      <div class="hero__orb hero__orb--3"></div>
-      <div class="hero__grid"></div>
+      <div class="hero__grid-bg"></div>
+    </div>
+    <div class="hero__deco-mark">
+      <svg viewBox="0 0 48 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 4 C24 4 32 -1 36 3 C30 7 26 9 24 9 Z" fill="rgba(255,255,255,0.1)"/>
+        <path d="M24 4 C24 4 16 -1 12 3 C18 7 22 9 24 9 Z" fill="rgba(255,255,255,0.06)"/>
+        <path d="M8 23 C8 13 15 9 24 9 C33 9 40 13 40 23 C40 35 33 47 24 47 C15 47 8 35 8 23Z" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2.8"/>
+        <circle cx="24" cy="28" r="11" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="2.2"/>
+        <circle cx="24" cy="28" r="6.5" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="2.2"/>
+        <circle cx="24" cy="28" r="2.5" fill="rgba(255,255,255,0.15)"/>
+      </svg>
     </div>
     <div class="hero__inner container">
       <div class="hero__badge reveal">
         <span class="badge-dot"></span>
-        AI-Powered Agricultural Marketplace · Nigeria
+        Now Live · Nigeria's First AI Farm Marketplace
       </div>
-      <h1 class="hero__headline reveal reveal--delay-1">
-        <span class="line line--outline">THE FUTURE</span>
-        <span class="line line--solid">OF AFRICAN</span>
-        <span class="line line--accent">AGRICULTURE</span>
-        <span class="line line--sub">HAS ARRIVED.</span>
+      <h1 class="hero__h1 reveal reveal--d1">
+        The Complete<br/>
+        <em>Farming Solution</em>
       </h1>
-      <p class="hero__sub reveal reveal--delay-2">
-        FarmAds.ng bridges Nigerian soil to dinner tables in Europe, China, and Asia.
-        We close the <strong>40% post-harvest waste gap</strong> with intelligent AI agents,
-        real-time weather mapping, and a zero-friction global escrow system.
+      <p class="hero__sub reveal reveal--d2">
+        We close Africa's <strong>40% post-harvest waste gap</strong> with AI brokers, 
+        pre-harvest global orders, and a secure escrow system — all in your pocket.
       </p>
-      <div class="hero__cta reveal reveal--delay-3">
-        <a href="#register" class="btn btn--hero">Grow Without Limits 🚀</a>
-        <a href="#how-it-works" class="btn btn--ghost-hero">See How It Works ↓</a>
+      <div class="hero__cta reveal reveal--d3">
+        <a href="#register" class="btn btn--hero">Start Selling Globally 🚀</a>
+        <a href="#how-it-works" class="btn btn--hero-ghost">See How It Works ↓</a>
       </div>
-      <div class="hero__stats reveal reveal--delay-4">
-        <div class="hero-stat">
-          <span class="hero-stat__num" data-target="40">0</span><span class="hero-stat__unit">%</span>
-          <span class="hero-stat__label">Waste Gap Eliminated</span>
-        </div>
-        <div class="hero-stat__divider"></div>
-        <div class="hero-stat">
-          <span class="hero-stat__num" data-target="3">0</span><span class="hero-stat__unit">+</span>
-          <span class="hero-stat__label">Continents Reached</span>
-        </div>
-        <div class="hero-stat__divider"></div>
-        <div class="hero-stat">
-          <span class="hero-stat__num" data-target="24">0</span><span class="hero-stat__unit">/7</span>
-          <span class="hero-stat__label">AI Broker Active</span>
-        </div>
+      <div class="hero__stats reveal reveal--d4">
+        <div class="hstat"><strong class="counter-hero" data-target="40">0</strong><span>%</span><small>Waste Eliminated</small></div>
+        <div class="hstat-sep"></div>
+        <div class="hstat"><strong class="counter-hero" data-target="3">0</strong><span>+</span><small>Continents Connected</small></div>
+        <div class="hstat-sep"></div>
+        <div class="hstat"><strong>24</strong><span>/7</span><small>AI Broker Active</small></div>
+        <div class="hstat-sep"></div>
+        <div class="hstat"><strong>100</strong><span>%</span><small>Escrow Protected</small></div>
       </div>
-    </div>
-    <div class="hero__scroll-indicator">
-      <span>SCROLL</span>
-      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- ───────── MARQUEE ───────── -->
-  <div class="marquee-track">
+  <!-- ═══ MARQUEE ═══ -->
+  <div class="marquee-bar">
     <div class="marquee-inner">
-      <span>AI Brokerage</span><span class="sep">✦</span>
-      <span>Pre-Harvest Orders</span><span class="sep">✦</span>
-      <span>Escrow Protection</span><span class="sep">✦</span>
-      <span>Zero-Waste Farming</span><span class="sep">✦</span>
-      <span>Global Markets</span><span class="sep">✦</span>
-      <span>Real-Time Weather Maps</span><span class="sep">✦</span>
-      <span>Climate Adaptation</span><span class="sep">✦</span>
-      <span>AI Brokerage</span><span class="sep">✦</span>
-      <span>Pre-Harvest Orders</span><span class="sep">✦</span>
-      <span>Escrow Protection</span><span class="sep">✦</span>
-      <span>Zero-Waste Farming</span><span class="sep">✦</span>
-      <span>Global Markets</span><span class="sep">✦</span>
-      <span>Real-Time Weather Maps</span><span class="sep">✦</span>
-      <span>Climate Adaptation</span><span class="sep">✦</span>
+      <span>AI Brokerage</span><b>✦</b><span>Pre-Harvest Orders</span><b>✦</b>
+      <span>Escrow Protection</span><b>✦</b><span>Zero-Waste Farming</span><b>✦</b>
+      <span>Global Markets</span><b>✦</b><span>Real-Time Weather Maps</span><b>✦</b>
+      <span>Climate Adaptation AI</span><b>✦</b><span>Secure Global Trade</span><b>✦</b>
+      <span>AI Brokerage</span><b>✦</b><span>Pre-Harvest Orders</span><b>✦</b>
+      <span>Escrow Protection</span><b>✦</b><span>Zero-Waste Farming</span><b>✦</b>
+      <span>Global Markets</span><b>✦</b><span>Real-Time Weather Maps</span><b>✦</b>
+      <span>Climate Adaptation AI</span><b>✦</b><span>Secure Global Trade</span><b>✦</b>
     </div>
   </div>
 
-  <!-- ───────── HOW IT WORKS ───────── -->
-  <section class="section how-works" id="how-it-works">
+  <!-- ═══ HOW IT WORKS — white ═══ -->
+  <section class="section section--white" id="how-it-works">
     <div class="container">
-      <div class="section__header reveal">
-        <span class="section__eyebrow">The Process</span>
-        <h2 class="section__title">How <em>FarmAds.ng</em> Works</h2>
-        <p class="section__desc">From field to global market in four intelligent steps.</p>
+      <div class="sec-hdr reveal">
+        <span class="eyebrow">Simple Process</span>
+        <h2>From Farm to Global Market<br/><em>in 4 Easy Steps</em></h2>
+        <p>No tech experience needed. If you can use WhatsApp, you can use Farmads.</p>
       </div>
-      <div class="steps">
-        <div class="step reveal">
-          <div class="step__num">01</div>
-          <div class="step__icon">🌱</div>
-          <h3 class="step__title">Register Your Farm</h3>
-          <p class="step__desc">Smallholder or large-scale — onboard your land, crop calendar, and logistics details in minutes.</p>
+      <div class="steps-row">
+        <div class="step-card reveal">
+          <div class="step-n">01</div>
+          <div class="step-icon">🌱</div>
+          <h3>Register Your Farm</h3>
+          <p>Add your farm, crop types, and location in minutes. Works on any phone — even 2G.</p>
         </div>
-        <div class="step__connector"></div>
-        <div class="step reveal reveal--delay-1">
-          <div class="step__num">02</div>
-          <div class="step__icon">🤖</div>
-          <h3 class="step__title">AI Brokers Activate</h3>
-          <p class="step__desc">Our intelligent agents scan global demand, match buyers, and handle export compliance and logistics in real time.</p>
+        <div class="step-arrow">→</div>
+        <div class="step-card reveal reveal--d1">
+          <div class="step-n">02</div>
+          <div class="step-icon">🤖</div>
+          <h3>AI Brokers Activate</h3>
+          <p>Our AI finds international buyers, handles export paperwork, and manages logistics — automatically.</p>
         </div>
-        <div class="step__connector"></div>
-        <div class="step reveal reveal--delay-2">
-          <div class="step__num">03</div>
-          <div class="step__icon">📦</div>
-          <h3 class="step__title">Pre-Harvest Orders</h3>
-          <p class="step__desc">Global buyers monitor your growth cycle and place orders before harvest — your produce is sold before it leaves the field.</p>
+        <div class="step-arrow">→</div>
+        <div class="step-card reveal reveal--d2">
+          <div class="step-n">03</div>
+          <div class="step-icon">📲</div>
+          <h3>Buyers Order Ahead</h3>
+          <p>Global buyers monitor your season and place orders before harvest — crop sold before it's picked.</p>
         </div>
-        <div class="step__connector"></div>
-        <div class="step reveal reveal--delay-3">
-          <div class="step__num">04</div>
-          <div class="step__icon">🔒</div>
-          <h3 class="step__title">Secure & Get Paid</h3>
-          <p class="step__desc">Funds are held in our integrated Escrow System and released on delivery confirmation. Transparent. Dispute-free.</p>
+        <div class="step-arrow">→</div>
+        <div class="step-card reveal reveal--d3">
+          <div class="step-n">04</div>
+          <div class="step-icon">💰</div>
+          <h3>Get Paid Securely</h3>
+          <p>Funds held in escrow and released on delivery confirmation. Transparent. No middlemen. No surprises.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ───────── FEATURES ───────── -->
-  <section class="section features" id="features">
-    <div class="features__bg">
-      <div class="features__orb"></div>
-    </div>
+  <!-- ═══ FEATURES — light grey ═══ -->
+  <section class="section section--grey" id="features">
     <div class="container">
-      <div class="section__header reveal">
-        <span class="section__eyebrow">Core Capabilities</span>
-        <h2 class="section__title">Why Choose <em>FarmAds.ng</em>?</h2>
+      <div class="sec-hdr reveal">
+        <span class="eyebrow">Why Farmads</span>
+        <h2>Everything Your Farm Needs.<br/><em>All In One Place.</em></h2>
       </div>
-      <div class="features__grid">
-
-        <div class="feature-card feature-card--large reveal">
-          <div class="feature-card__tag">AI Core</div>
-          <div class="feature-card__icon">🤖</div>
-          <h3 class="feature-card__title">AI-Powered Market Workforce</h3>
-          <p class="feature-card__desc">Our intelligent agents act as your personal brokerage team — navigating complex export bottlenecks, international trade standards, and logistics in real time, 24/7.</p>
-          <div class="feature-card__footer">
-            <span class="pill">Export Compliance</span>
-            <span class="pill">Live Logistics</span>
-            <span class="pill">Trade Standards</span>
-          </div>
+      <div class="feat-grid">
+        <div class="feat-card feat-card--tall reveal">
+          <span class="feat-tag">AI Core</span>
+          <div class="feat-icon">🤖</div>
+          <h3>AI-Powered Market Workforce</h3>
+          <p>Our intelligent agents act as your personal brokerage team — navigating export bottlenecks, international trade standards, and logistics 24/7, so you focus on farming.</p>
+          <div class="feat-pills"><span>Export Compliance</span><span>Live Logistics</span><span>Trade Standards</span></div>
         </div>
-
-        <div class="feature-card reveal reveal--delay-1">
-          <div class="feature-card__icon">🌤️</div>
-          <h3 class="feature-card__title">Precision Farming</h3>
-          <p class="feature-card__desc">AI-calculated planting cycles, real-time weather mapping, and climate change adaptation strategies to maximise every harvest.</p>
-          <div class="feature-card__footer">
-            <span class="pill">Weather Maps</span>
-            <span class="pill">AI Cycles</span>
-          </div>
+        <div class="feat-card reveal reveal--d1">
+          <div class="feat-icon">🌤️</div>
+          <h3>Precision Farming</h3>
+          <p>AI-calculated planting cycles, real-time weather mapping, and climate adaptation strategies to maximise every harvest.</p>
+          <div class="feat-pills"><span>Weather Maps</span><span>AI Planting</span></div>
         </div>
-
-        <div class="feature-card reveal reveal--delay-2">
-          <div class="feature-card__icon">♻️</div>
-          <h3 class="feature-card__title">Zero-Waste Harvests</h3>
-          <p class="feature-card__desc">Global buyers monitor farm seasons live. Pre-orders before harvest mean your produce is sold before it leaves the soil — eliminating post-harvest loss entirely.</p>
-          <div class="feature-card__footer">
-            <span class="pill">Pre-Orders</span>
-            <span class="pill">Season Monitoring</span>
-          </div>
+        <div class="feat-card reveal reveal--d2">
+          <div class="feat-icon">♻️</div>
+          <h3>Zero-Waste Harvests</h3>
+          <p>Global buyers pre-order before harvest — your produce is sold before it leaves the field, eliminating post-harvest loss entirely.</p>
+          <div class="feat-pills"><span>Pre-Orders</span><span>Season Monitoring</span></div>
         </div>
-
-        <div class="feature-card reveal">
-          <div class="feature-card__icon">🔐</div>
-          <h3 class="feature-card__title">Secure Global Trade</h3>
-          <p class="feature-card__desc">Our integrated Escrow System ensures every transaction is transparent, secure, and dispute-free — whether you're a smallholder or institutional investor.</p>
-          <div class="feature-card__footer">
-            <span class="pill">Escrow</span>
-            <span class="pill">Dispute-Free</span>
-          </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon">🔐</div>
+          <h3>Secure Global Trade</h3>
+          <p>Integrated Escrow System ensures every transaction is transparent and dispute-free — for smallholders and institutions alike.</p>
+          <div class="feat-pills"><span>Escrow</span><span>Dispute-Free</span></div>
         </div>
-
-        <div class="feature-card feature-card--accent reveal reveal--delay-1">
-          <div class="feature-card__icon">🌍</div>
-          <h3 class="feature-card__title">Global Reach</h3>
-          <p class="feature-card__desc">Direct connections to buyers in Europe, China, and burgeoning Asian markets — with real-time price discovery and demand signals.</p>
-          <div class="feature-card__footer">
-            <span class="pill">Europe</span>
-            <span class="pill">China</span>
-            <span class="pill">Asia</span>
-          </div>
+        <div class="feat-card feat-card--green reveal reveal--d1">
+          <div class="feat-icon">🌍</div>
+          <h3>Global Market Access</h3>
+          <p>Direct connections to buyers in Europe, China, and Asia with real-time price discovery and demand signals.</p>
+          <div class="feat-pills feat-pills--light"><span>Europe</span><span>China</span><span>Asia</span></div>
         </div>
-
-        <div class="feature-card reveal reveal--delay-2">
-          <div class="feature-card__icon">📊</div>
-          <h3 class="feature-card__title">Real-Time Insights</h3>
-          <p class="feature-card__desc">Dashboards with crop analytics, market demand forecasting, and loss-prevention alerts keep you one season ahead of the market.</p>
-          <div class="feature-card__footer">
-            <span class="pill">Analytics</span>
-            <span class="pill">Forecasting</span>
-          </div>
+        <div class="feat-card reveal reveal--d2">
+          <div class="feat-icon">📊</div>
+          <h3>Real-Time Insights</h3>
+          <p>Dashboards with crop analytics, demand forecasting, and loss-prevention alerts keep you one season ahead.</p>
+          <div class="feat-pills"><span>Analytics</span><span>Forecasting</span></div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ───────── QUOTE BREAK ───────── -->
+  <!-- ═══ QUOTE — green ═══ -->
   <section class="quote-section">
     <div class="container">
-      <blockquote class="big-quote reveal">
-        <span class="big-quote__mark">"</span>
-        Bridging the gap between the farm and the world —
-        <em>one AI-driven connection at a time.</em>
-        <span class="big-quote__mark">"</span>
-      </blockquote>
+      <div class="quote-inner reveal">
+        <svg viewBox="0 0 48 52" fill="none" width="44" height="48" style="flex-shrink:0;opacity:0.9">
+          <path d="M24 4 C24 4 32 -1 36 3 C30 7 26 9 24 9 Z" fill="white"/>
+          <path d="M24 4 C24 4 16 -1 12 3 C18 7 22 9 24 9 Z" fill="rgba(255,255,255,0.5)"/>
+          <line x1="24" y1="3" x2="24" y2="10" stroke="white" stroke-width="1.8"/>
+          <path d="M8 23 C8 13 15 9 24 9 C33 9 40 13 40 23 C40 35 33 47 24 47 C15 47 8 35 8 23Z" fill="none" stroke="white" stroke-width="2.8"/>
+          <circle cx="24" cy="28" r="11" fill="none" stroke="white" stroke-width="2.2"/>
+          <circle cx="24" cy="28" r="6.5" fill="none" stroke="white" stroke-width="2.2"/>
+          <circle cx="24" cy="28" r="2.5" fill="white"/>
+        </svg>
+        <div>
+          <blockquote>"Bridging the gap between the farm and the world — <em>one AI-driven connection at a time.</em>"</blockquote>
+          <cite>— Farmads.com · The Complete Farming Solution</cite>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ───────── STAKEHOLDERS ───────── -->
-  <section class="section stakeholders" id="stakeholders">
+  <!-- ═══ MOBILE SECTION — white ═══ -->
+  <section class="section section--white" id="mobile">
     <div class="container">
-      <div class="section__header reveal">
-        <span class="section__eyebrow">Empowering Everyone</span>
-        <h2 class="section__title">Built for Every Stakeholder</h2>
-        <p class="section__desc">Whether you grow it or source it, FarmAds.ng gives you the advantage.</p>
-      </div>
-      <div class="stakeholder-grid">
-        <div class="stakeholder-card reveal">
-          <div class="stakeholder-card__header">
-            <span class="stakeholder-card__emoji">🧑‍🌾</span>
-            <h3 class="stakeholder-card__title">For Farmers</h3>
-          </div>
-          <ul class="stakeholder-list">
+      <div class="mobile-layout">
+
+        <div class="mobile-text reveal">
+          <span class="eyebrow">Mobile-First Platform</span>
+          <h2>Built for Farmers,<br/><em>Not Tech Experts</em></h2>
+          <p class="mobile-desc">Farmads works beautifully on any smartphone. No app store required — open in your browser and you're ready to trade globally in minutes.</p>
+          <ul class="mobile-list">
             <li>
-              <span class="check">✓</span>
-              Access to premium international markets in Europe, Asia & beyond
+              <div class="ml-icon">📱</div>
+              <div><strong>Works on Any Phone</strong><p>Optimised for 2G/3G connections common in rural Nigeria</p></div>
             </li>
             <li>
-              <span class="check">✓</span>
-              Real-time insights and loss-reduction alerts
+              <div class="ml-icon">💬</div>
+              <div><strong>WhatsApp Integration</strong><p>Get alerts, orders, and buyer messages directly on WhatsApp</p></div>
             </li>
             <li>
-              <span class="check">✓</span>
-              Automated logistics and AI Broker support
+              <div class="ml-icon">🌐</div>
+              <div><strong>Nigerian Language Support</strong><p>Interface in Hausa, Yoruba & Igbo — coming soon</p></div>
             </li>
             <li>
-              <span class="check">✓</span>
-              Sell your harvest before it leaves the field
-            </li>
-            <li>
-              <span class="check">✓</span>
-              Fair, transparent pricing with no hidden fees
+              <div class="ml-icon">⚡</div>
+              <div><strong>3-Minute Setup</strong><p>Register, list your crop, and go live faster than a phone call</p></div>
             </li>
           </ul>
-          <a href="#register" class="btn btn--primary" style="margin-top:2rem;width:100%;justify-content:center;">Register as Farmer</a>
+          <a href="#register" class="btn btn--green" style="margin-top:2.5rem">Start in 3 Minutes →</a>
         </div>
 
-        <div class="stakeholder-divider">
-          <div class="stakeholder-divider__line"></div>
-          <span class="stakeholder-divider__badge">VS</span>
-          <div class="stakeholder-divider__line"></div>
-        </div>
+        <!-- PHONE MOCKUPS -->
+        <div class="phones-wrap reveal reveal--d1">
 
-        <div class="stakeholder-card stakeholder-card--buyer reveal reveal--delay-1">
-          <div class="stakeholder-card__header">
-            <span class="stakeholder-card__emoji">🌐</span>
-            <h3 class="stakeholder-card__title">For Buyers & Investors</h3>
-          </div>
-          <ul class="stakeholder-list">
-            <li>
-              <span class="check">✓</span>
-              Direct access to fresh, fully traceable African produce
-            </li>
-            <li>
-              <span class="check">✓</span>
-              Pre-order harvests and track live growth cycles
-            </li>
-            <li>
-              <span class="check">✓</span>
-              Secure investment via integrated escrow protection
-            </li>
-            <li>
-              <span class="check">✓</span>
-              Real-time farm season monitoring dashboards
-            </li>
-            <li>
-              <span class="check">✓</span>
-              Verified suppliers with full compliance documentation
-            </li>
-          </ul>
-          <a href="#register" class="btn btn--primary" style="margin-top:2rem;width:100%;justify-content:center;">Source African Produce</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────── STATS ───────── -->
-  <section class="section stats-section" id="stats">
-    <div class="stats-section__bg"></div>
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="section__eyebrow">The Numbers</span>
-        <h2 class="section__title">The Scale of the Problem<br/><em>We're Solving</em></h2>
-      </div>
-      <div class="stats-grid">
-        <div class="stat-card reveal">
-          <div class="stat-card__num"><span class="counter" data-target="40">0</span>%</div>
-          <div class="stat-card__label">Post-harvest food loss in sub-Saharan Africa — our primary target</div>
-        </div>
-        <div class="stat-card reveal reveal--delay-1">
-          <div class="stat-card__num">$<span class="counter" data-target="4">0</span>B+</div>
-          <div class="stat-card__label">Annual value lost to post-harvest waste across the continent</div>
-        </div>
-        <div class="stat-card reveal reveal--delay-2">
-          <div class="stat-card__num"><span class="counter" data-target="70">0</span>%</div>
-          <div class="stat-card__label">Of Nigeria's population engaged in agriculture — our core community</div>
-        </div>
-        <div class="stat-card reveal reveal--delay-3">
-          <div class="stat-card__num"><span class="counter" data-target="1">0</span>B+</div>
-          <div class="stat-card__label">Global consumers increasingly demanding traceable, ethical produce</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────── CROPS / CATEGORIES ───────── -->
-  <section class="section crops-section">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="section__eyebrow">What We Trade</span>
-        <h2 class="section__title">From Soil to Sale</h2>
-        <p class="section__desc">Cash crops, livestock, and everything in between — FarmAds.ng handles it all.</p>
-      </div>
-      <div class="crops-grid">
-        <div class="crop-card reveal" style="--i:0">
-          <div class="crop-card__img">🌿</div>
-          <span>Sesame Seeds</span>
-        </div>
-        <div class="crop-card reveal" style="--i:1">
-          <div class="crop-card__img">🥜</div>
-          <span>Groundnuts</span>
-        </div>
-        <div class="crop-card reveal" style="--i:2">
-          <div class="crop-card__img">🌽</div>
-          <span>Maize & Grains</span>
-        </div>
-        <div class="crop-card reveal" style="--i:3">
-          <div class="crop-card__img">🫘</div>
-          <span>Soybeans</span>
-        </div>
-        <div class="crop-card reveal" style="--i:4">
-          <div class="crop-card__img">🍅</div>
-          <span>Tomatoes</span>
-        </div>
-        <div class="crop-card reveal" style="--i:5">
-          <div class="crop-card__img">🐄</div>
-          <span>Livestock</span>
-        </div>
-        <div class="crop-card reveal" style="--i:6">
-          <div class="crop-card__img">🥥</div>
-          <span>Palm Products</span>
-        </div>
-        <div class="crop-card reveal" style="--i:7">
-          <div class="crop-card__img">🍠</div>
-          <span>Root Crops</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────── REGISTER / CTA ───────── -->
-  <section class="section cta-section" id="register">
-    <div class="container">
-      <div class="cta-card reveal">
-        <div class="cta-card__bg">
-          <div class="cta-orb cta-orb--1"></div>
-          <div class="cta-orb cta-orb--2"></div>
-        </div>
-        <div class="cta-card__content">
-          <span class="section__eyebrow" style="color:var(--lime)">Join the Movement</span>
-          <h2 class="cta-card__title">Ready to Grow<br/><em>Without Limits?</em></h2>
-          <p class="cta-card__desc">Digitize African agriculture. End post-harvest waste. Connect your harvest to the world — starting today.</p>
-          <div class="cta-form" id="ctaForm">
-            <div class="cta-form__row">
-              <input type="text" class="cta-input" placeholder="Full Name" id="ctaName" />
-              <input type="email" class="cta-input" placeholder="Email Address" id="ctaEmail" />
+          <!-- Left phone -->
+          <div class="phone phone--left">
+            <div class="phone__shell">
+              <div class="phone__notch"></div>
+              <div class="phone__screen">
+                <div class="s-bar">
+                  <span class="s-back">←</span>
+                  <span class="s-title">Add Listing</span>
+                  <span></span>
+                </div>
+                <div class="s-field"><label>Crop Type</label><div class="s-select">Sesame Seeds ▾</div></div>
+                <div class="s-field"><label>Quantity</label><div class="s-input">10 Tonnes</div></div>
+                <div class="s-field"><label>Harvest Date</label><div class="s-input">June 2025 📅</div></div>
+                <div class="s-field"><label>Price / Tonne</label><div class="s-input">₦85,000</div></div>
+                <div class="s-cta">🚀 List on Global Market</div>
+                <div class="s-tip">💡 AI suggests ₦88,000 based on EU demand</div>
+              </div>
             </div>
-            <div class="cta-form__row">
-              <select class="cta-input cta-select" id="ctaRole">
-                <option value="" disabled selected>I am a...</option>
-                <option value="farmer">Farmer / Producer</option>
-                <option value="buyer">International Buyer</option>
-                <option value="investor">Investor</opt
+          </div>
+
+          <!-- Center phone (hero) -->
+          <div class="phone phone--center">
+            <div class="phone__shell">
+              <div class="phone__notch"></div>
+              <div class="phone__screen">
+                <div class="s-bar">
+                  <svg viewBox="0 0 48 52" fill="none" width="18" height="20">
+                    <path d="M24 4 C24 4 32 -1 36 3 C30 7 26 9 24 9 Z" fill="#27AE60"/>
+                    <path d="M8 23 C8 13 15 9 24 9 C33 9 40 13 40 23 C40 35 33 47 24 47 C15 47 8 35 8 23Z" fill="none" stroke="#27AE60" stroke-width="2.8"/>
+                    <circle cx="24" cy="28" r="8" fill="none" stroke="#27AE60" stroke-width="2.2"/>
+                    <circle cx="24" cy="28" r="2.5" fill="#27AE60"/>
+                  </svg>
+                  <span class="s-title">Farmads</span>
+                  <span>🔔</span>
+                </div>
+                <div class="s-earnings">
+                  <div class="s-earnings__label">Today's Earnings</div>
+                  <div class="s-earnings__amt">₦284,000</div>
+                  <div class="s-earnings__sub">3 active · 2 pending</div>
+                  <div class="s-earnings__bar"><div class="s-earnings__fill"></div></div>
+                </div>
+                <div class="s-actions">
+                  <div class="s-action s-action--active"><span>🌾</span><small>Sell</small></div>
+                  <div class="s-action"><span>📦</span><small>Orders</small></div>
+                  <div class="s-action"><span>💰</span><small>Escrow</small></div>
+                  <div class="s-action"><span>📊</span><small>Market</small></div>
+                </div>
+                <div class="s-section-lbl">Active Listings</div>
+                <div class="s-listing"><span class="s-listing__ico">🌽</span><div><b>Maize · 5 Tonnes</b><small>2 buyers watching</small></div><span class="s-badge s-badge--live">Live</span></div>
+                <div class="s-listing"><span class="s-listing__ico">🥜</span><div><b>Groundnuts · 2T</b><small>EU buyer · Ordered</small></div><span class="s-badge s-badge--sold">Sold</span></div>
+                <div class="s-listing"><span class="s-listing__ico">🫘</span><div><b>Soybeans · 3T</b><small>Escrow confirmed</small></div><span class="s-badge s-badge--escrow">Escrow</span></div>
+                <div class="s-nav"><span>🏠</span><span>🔍</span><span class="s-nav--on">🌾</span><span>💬</span><span>👤</span></div>
+              </div>
+            </div>
+            <div class="phone__glow"></div>
+          </div>
+
+          <!-- Right phone -->
+          <div class="phone phone--right">
+            <div class="phone__shell">
+              <div class="phone__notch"></div>
+              <div class="phone__screen">
+                <div class="s-bar">
+                  <span class="s-back">←</span>
+                  <span class="s-title">Buyer Offer</span>
+                  <span></span>
+                </div>
+                <div class="s-buyer">
+                  <span>🇩🇪</span>
+                  <div><b>GrainTrade GmbH</b><small>Frankfurt · Verified ✓</small></div>
+                </div>
+                <div class="s-offer-rows">
+                  <div><span>Crop</span><b>Sesame Seeds</b></div>
+                  <div><span>Quantity</span><b>8 Tonnes</b></div>
+                  <div><span>Offer</span><b class="s-price">₦91,000/T</b></div>
+                  <div><span>Delivery</span><b>July 2025</b></div>
+                  <div><span>Escrow</span><b class="s-safe">✓ Protected</b></div>
+                </div>
+                <div class="s-offer-btns">
+                  <div class="s-accept">✓ Accept</div>
+                  <div class="s-counter">↔ Counter</div>
+                </div>
+                <div class="s-secured">🔒 Funds secured in escrow on acceptance</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STAKEHOLDERS — white ═══ -->
+  <section class="section section--grey" id="stakeholders">
+    <div class="container">
+      <div class="sec-hdr reveal">
+        <span class="eyebrow">Empowering Everyone</span>
+        <h2>Built for Every Stakeholder</h2>
+        <p>Whether you grow it or source it, Farmads gives you the advantage.</p>
+      </div>
+      <div class="stake-grid">
+        <div class="stake-card reveal">
+          <div class="stake-hdr stake-hdr--green">
+            <span>🧑‍🌾</span><h3>For Farmers</h3>
+          </div>
+          <ul class="stake-list">
+            <li><span class="ck">✓</span>Access premium international markets — Europe, Asia & beyond</li>
+            <li><span class="ck">✓</span>Real-time insights and post-harvest loss prevention</li>
+            <li><span class="ck">✓</span>AI Brokers handle logistics & export compliance automatically</li>
+            <li><span class="ck">✓</span>Sell your harvest before it even leaves the field</li>
+            <li><span class="ck">✓</span>Fair, transparent pricing — no hidden middlemen</li>
+            <li><span class="ck">✓</span>Works on any phone, any network</li>
+          </ul>
+          <a href="#register" class="btn btn--green" style="margin-top:2rem;width:100%;justify-

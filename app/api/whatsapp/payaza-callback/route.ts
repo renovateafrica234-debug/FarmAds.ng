@@ -35,20 +35,11 @@ export async function POST(req: NextRequest) {
         .eq("id", order.id);
 
       await sendWhatsApp(order.buyer_phone,
-        `✅ *Payment Confirmed!*\n\n` +
-        `Order #${order.id.slice(0, 8).toUpperCase()} paid.\n` +
-        `Amount: ₦${amount?.toLocaleString() || order.total_amount.toLocaleString()}\n\n` +
-        `The farmer will prepare your ${order.produce?.name} for delivery. 🚚`
+        `✅ *Payment Confirmed!*\n\nOrder #${order.id.slice(0, 8).toUpperCase()} paid.\nAmount: ₦${amount?.toLocaleString() || order.total_amount.toLocaleString()}\n\nThe farmer will prepare your ${order.produce?.name} for delivery. 🚚`
       );
 
       await sendWhatsApp(order.farmers?.phone,
-        `🌾 *New Order on Farmads!*\n\n` +
-        `Order #${order.id.slice(0, 8).toUpperCase()}\n` +
-        `Item: ${order.produce?.name}\n` +
-        `Quantity: ${order.quantity_kg}kg\n` +
-        `Total: ₦${order.total_amount.toLocaleString()}\n` +
-        `Delivery: ${order.delivery_location}\n\n` +
-        `Payment confirmed. Please prepare for pickup. ✅`
+        `🌾 *New Order on Farmads!*\n\nOrder #${order.id.slice(0, 8).toUpperCase()}\nItem: ${order.produce?.name}\nQuantity: ${order.quantity_kg}kg\nTotal: ₦${order.total_amount.toLocaleString()}\nDelivery: ${order.delivery_location}\n\nPayment confirmed. Please prepare for pickup. ✅`
       );
     }
 
@@ -71,5 +62,4 @@ async function sendWhatsApp(to: string, text: string) {
       body: text,
     }),
   });
-        }
-    
+}

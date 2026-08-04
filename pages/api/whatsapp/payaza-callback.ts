@@ -69,4 +69,5 @@ async function sendWA(to: string, body: string) {
       body: JSON.stringify({ to: phone, body, typing_time: 0 })
     });
   } catch (e) { console.error("WA send failed:", e); }
-}
+                                                     }
+                   

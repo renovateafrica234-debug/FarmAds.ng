@@ -1,12 +1,14 @@
 export const metadata = {
-  title: "FarmAds.ng",
-  description: "AI-Powered Agricultural Marketplace",
+  title: "Farmads.ng — AI-Powered Agricultural Marketplace",
+  description: "Connecting Nigerian farmers to global markets via AI brokerage.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body style={{ margin: 0, fontFamily: "system-ui, sans-serif" }}>
+        {children}
+      </body>
     </html>
   );
 }

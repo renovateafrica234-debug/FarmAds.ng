@@ -204,5 +204,5 @@ function menu() {
 }
 function catMenu() {
   return `📂 *Browse Categories*\n\n*1* — 🍫 Cocoa & Oil Palm\n*2* — 🍌 Plantain\n*3* — 🍠 Cassava & Garri\n*4* — 🥔 Yam\n*5* — 🌶️ Pepper & Spices\n\nType *MENU* to go back.`;
-      }
+}
   

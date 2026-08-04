@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-// ─── Environment Validation ─────────────────────────────────────────
 function requireEnv(name: string): string {
   const value = process.env[name];
-  if (!value || value.trim() === "") {
+  if (!value || value.trim() === "" || value.includes("your-")) {
     throw new Error(`Missing required environment variable: ${name}`);
   }
   return value;
@@ -20,7 +19,6 @@ const APP_URL = requireEnv("NEXT_PUBLIC_APP_URL");
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 const payazaAuth = `Payaza ${Buffer.from(PAYAZA_KEY).toString("base64")}`;
 
-// ─── Types ───────────────────────────────────────────────────────────
 interface Context {
   selectedProduceId?: string;
   selectedFarmerId?: string;
@@ -31,7 +29,6 @@ interface Context {
   selectedProduce?: any;
 }
 
-// ─── Constants ──────────────────────────────────────────────────────
 const CATEGORIES: Record<string, string[]> = {
   "1": ["Cocoa Beans", "Palm Oil"],
   "2": ["Plantain", "Plantain Suckers"],
@@ -48,7 +45,6 @@ const CATEGORY_NAMES: Record<string, string> = {
   "5": "🌶️ Pepper & Spices",
 };
 
-// ─── Main Handler ───────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
   try {
     const payload = await req.json();
@@ -61,7 +57,6 @@ export async function POST(req: NextRequest) {
     const phone = normalizePhone(from);
     const text = messageText.trim();
 
-    // Get or create conversation
     let { data: conv } = await supabase
       .from("wa_conversations")
       .select("*")
@@ -127,7 +122,7 @@ export async function POST(req: NextRequest) {
         `Reply *2* for Bank Transfer (manual)\n\n` +
         `Type *MENU* to cancel.`;
       nextStep = "payment";
-      nextContext = { ...context, deliveryLocation: text };
+      nextContext = { ...context, deliveryLocation: sanitize(text) };
     } else if (step === "payment") {
       const result = await handlePayment(text, context, phone);
       reply = result.reply;
@@ -170,7 +165,6 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({ status: "ok" });
 }
 
-// ─── Step Handlers ─────────────────────────────────────────────────
 async function handleMenu(text: string, phone: string) {
   if (text === "1") {
     return { reply: getCategoryMenu(), nextStep: "browse_category", context: {} };
@@ -348,5 +342,55 @@ async function handlePayment(text: string, context: Context, phone: string) {
   const location = context.deliveryLocation || "";
 
   if (text === "1") {
-    const { data: order, error: order
-    
+    const { data: order, error: orderError } = await supabase
+      .from("orders")
+      .insert({
+        buyer_phone: phone,
+        farmer_id: context.selectedFarmerId,
+        produce_id: context.selectedProduceId,
+        quantity_kg: qty,
+        total_amount: total,
+        delivery_location: location,
+        status: "pending",
+      })
+      .select()
+      .single();
+
+    if (orderError || !order) {
+      console.error("Order creation failed:", orderError);
+      return {
+        reply: `❌ Could not create order. Please try again later.`,
+        nextStep: "menu",
+        context: {},
+      };
+    }
+
+    const payazaLink = await createPayazaPaymentLink({
+      amount: total,
+      reference: `FARMADS-${order.id.slice(0, 8)}`,
+      customerEmail: `${phone}@farmads.ng`,
+      customerName: phone,
+      description: `${produce.name} x ${qty}${produce.unit} from Farmads`,
+    });
+
+    await supabase
+      .from("orders")
+      .update({
+        payaza_reference: `FARMADS-${order.id.slice(0, 8)}`,
+        payaza_payment_link: payazaLink,
+      })
+      .eq("id", order.id);
+
+    return {
+      reply:
+        `✅ *Order Created!*\n\n` +
+        `Order ID: #${order.id.slice(0, 8).toUpperCase()}\n` +
+        `Item: ${produce.name} x ${qty}${produce.unit}\n` +
+        `Total: ₦${total.toLocaleString()}\n` +
+        `Delivery: ${location}\n\n` +
+        `Click to pay securely:\n${payazaLink}\n\n` +
+        `Once paid, you'll receive confirmation. Type *MENU*.`,
+      nextStep: "order_complete",
+      context: {},
+
+      

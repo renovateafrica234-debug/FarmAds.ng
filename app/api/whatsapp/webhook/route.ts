@@ -349,4 +349,4 @@ async function handlePayment(text: string, context: Context, phone: string) {
 
   if (text === "1") {
     const { data: order, error: order
-      
+    

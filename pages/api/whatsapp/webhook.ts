@@ -116,7 +116,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         console.log("INSERT ORDER DEBUG:", {
           buyer_phone: phone,
           farmer_id: ctx.selectedFarmerId,
-          product_id: ctx.selectedProductId,
+          produce_id: ctx.selectedProduceId,
           quantity_kg: qty,
           total_amount: total,
           delivery_location: loc,

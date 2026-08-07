@@ -112,10 +112,33 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     } else if (step === "payment") {
       const p = ctx.selectedProduct; const qty = ctx.quantity||0; const total = ctx.totalAmount||0; const loc = ctx.deliveryLocation||"";
       if (text === "1") {
-        const { data: order, error: oe } = await supabase.from("orders").insert({ buyer_phone: phone, farmer_id: ctx.selectedFarmerId, product_id: ctx.selectedProductId, quantity_kg: qty, total_amount: total, delivery_location: loc, status: "pending" }).select().single();
-        if (oe || !order) { reply = "❌ Order failed. Try later."; nextStep = "menu"; nextCtx = {}; }
-        else {
-          // Create Paystack Payment Link
+        // DEBUG: Log insert values before attempting
+        console.log("INSERT ORDER DEBUG:", {
+          buyer_phone: phone,
+          farmer_id: ctx.selectedFarmerId,
+          product_id: ctx.selectedProductId,
+          quantity_kg: qty,
+          total_amount: total,
+          delivery_location: loc,
+        });
+
+        const { data: order, error: oe } = await supabase.from("orders").insert({
+          buyer_phone: phone,
+          farmer_id: ctx.selectedFarmerId,
+          product_id: ctx.selectedProductId,
+          quantity_kg: qty,
+          total_amount: total,
+          delivery_location: loc,
+          status: "pending"
+        }).select().single();
+
+        if (oe || !order) {
+          console.error("ORDER INSERT ERROR:", JSON.stringify(oe, null, 2));
+          reply = "❌ Order failed. Try later.";
+          nextStep = "menu";
+          nextCtx = {};
+        } else {
+          console.log("ORDER CREATED:", order.id);
           const ref = `FMD-${order.id.slice(0,11)}`;
           const paystackRes = await fetch("https://api.paystack.co/paymentrequest", {
             method: "POST",
@@ -125,23 +148,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             },
             body: JSON.stringify({
               customer: phone,
-              amount: total * 100, // Paystack uses kobo
+              amount: total * 100,
               description: `${p.name} x ${qty}${p.unit}`,
               callback_url: `${APP_URL}/api/whatsapp/payaza-callback`,
             }),
           });
           const paystackData = await paystackRes.json();
+          console.log("PAYSTACK RESPONSE:", JSON.stringify(paystackData, null, 2));
 
           let link = "";
           if (paystackData.status && paystackData.data) {
-            link = paystackData.data.request_code 
+            link = paystackData.data.request_code
               ? `https://paystack.com/pay/${paystackData.data.request_code}`
               : paystackData.data.url || "";
           }
 
-          await supabase.from("orders").update({ 
-            paystack_reference: ref, 
-            paystack_payment_link: link 
+          await supabase.from("orders").update({
+            paystack_reference: ref,
+            paystack_payment_link: link
           }).eq("id", order.id);
 
           if (!link) {
@@ -188,5 +212,5 @@ function menu() {
 }
 function catMenu() {
   return `📋 *Browse Categories*\n\n*1* — 🍫 Cocoa & Oil Palm\n*2* — 🍌 Plantain\n*3* — 🍠 Cassava & Garri\n*4* — 🌾 Yam\n*5* — 🌶️ Pepper & Spices\n\nType *MENU* to go back.`;
-                                                                                                    }
-  
+      }
+    

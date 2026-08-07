@@ -112,11 +112,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     } else if (step === "payment") {
       const p = ctx.selectedProduct; const qty = ctx.quantity||0; const total = ctx.totalAmount||0; const loc = ctx.deliveryLocation||"";
       if (text === "1") {
-        // DEBUG: Log insert values before attempting
         console.log("INSERT ORDER DEBUG:", {
           buyer_phone: phone,
           farmer_id: ctx.selectedFarmerId,
-          produce_id: ctx.selectedProduceId,
+          produce_id: ctx.selectedProductId,
           quantity_kg: qty,
           total_amount: total,
           delivery_location: loc,
@@ -125,7 +124,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const { data: order, error: oe } = await supabase.from("orders").insert({
           buyer_phone: phone,
           farmer_id: ctx.selectedFarmerId,
-          product_id: ctx.selectedProductId,
+          produce_id: ctx.selectedProductId,
           quantity_kg: qty,
           total_amount: total,
           delivery_location: loc,
@@ -150,7 +149,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               customer: phone,
               amount: total * 100,
               description: `${p.name} x ${qty}${p.unit}`,
-              callback_url: `${APP_URL}/api/whatsapp/payaza-callback`,
+              callback_url: `${APP_URL}/api/whatsapp/paystack-callback`,
             }),
           });
           const paystackData = await paystackRes.json();
@@ -212,5 +211,5 @@ function menu() {
 }
 function catMenu() {
   return `📋 *Browse Categories*\n\n*1* — 🍫 Cocoa & Oil Palm\n*2* — 🍌 Plantain\n*3* — 🍠 Cassava & Garri\n*4* — 🌾 Yam\n*5* — 🌶️ Pepper & Spices\n\nType *MENU* to go back.`;
-      }
+                                                                           }
     
